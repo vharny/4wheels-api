@@ -1,13 +1,18 @@
-# 4wheels-api
-Webservices Spring boot
+# Projet Java : 4Wheels 
 
-EQUIPE : 
-HARNY Valentin
-CATRIX Antonin
-PREVOT Alexandre
-SOULAQUES Geoffrey
+**EQUIPE :**
+<ul>
+<li>HARNY Valentin</li>
+<li>CATRIX Antonin</li>
+<li>PREVOT Alexandre</li>
+<li>SOULAQUES Geoffrey</li>
+</ul>
 
-TECHNO UTILISE : 
-Front : React / Redux
-Back : JAVA avec Spring
-BDD : MySQL
+**TECHNO UTILISE :** 
+<ul>
+<li>Front : React / Redux</li>
+<li>Back : JAVA avec Spring</li>
+<li>BDD : MySQL</li>
+</ul>
+
+
