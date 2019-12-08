@@ -1,6 +1,5 @@
 package com.wheels.wheelsapi.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -10,20 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "provider")
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Provider {
     @Id
     @GeneratedValue
     Integer id;
-    String lastName;
+    String denomination;
+    String siret;
+    String address;
     String firstName;
-    String email;
-    boolean admin;
-    @JsonIgnore
-    String password;
+    String lastName;
 }
