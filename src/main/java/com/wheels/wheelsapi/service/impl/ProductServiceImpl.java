@@ -29,7 +29,27 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product addProduct(Product product) {
+    public List<Product> getProductsByProviderId(Integer id) {
+        return repository.findByProvider_Id(id);
+    }
+
+    @Override
+    public List<Product> getProductsByCategoryId(Integer id) {
+        return repository.findByCategory_Id(id);
+    }
+
+    @Override
+    public List<Product> getProductsByDescription(String description) {
+        return repository.findByDescriptionContains(description);
+    }
+
+    @Override
+    public List<Product> getProductsByProviderAndCategoryAndDescription(Integer provider, Integer category, String description) {
+        return repository.findByProvider_IdAndCategory_IdAndDescriptionContains(provider, category, description);
+    }
+
+    @Override
+    public Product createProduct(Product product) {
         return repository.save(product);
     }
 

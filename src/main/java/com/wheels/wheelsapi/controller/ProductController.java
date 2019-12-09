@@ -31,9 +31,29 @@ public class ProductController {
         return service.getProductById(id);
     }
 
+    @GetMapping("provider/{id}")
+    public List<Product> getProductsByProviderId(@PathVariable Integer id) {
+        return service.getProductsByProviderId(id);
+    }
+
+    @GetMapping("category/{id}")
+    public List<Product> getProductsByCategoryId(@PathVariable Integer id) {
+        return service.getProductsByCategoryId(id);
+    }
+
+    @GetMapping("description")
+    public List<Product> getProductsByDescription(@RequestHeader String description) {
+        return service.getProductsByDescription(description);
+    }
+
+    @GetMapping("search")
+    public List<Product> getProductsByProviderAndCategoryAndDescription(@RequestHeader Integer provider, @RequestHeader Integer category, @RequestHeader String description) {
+        return service.getProductsByProviderAndCategoryAndDescription(provider, category, description);
+    }
+
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
-        return service.addProduct(product);
+    public Product createProduct(@RequestBody Product product) {
+        return service.createProduct(product);
     }
 
     @PutMapping("{id}")

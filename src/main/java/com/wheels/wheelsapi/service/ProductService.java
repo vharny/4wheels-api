@@ -8,6 +8,10 @@ import java.util.Optional;
 public interface ProductService {
     List<Product> getAllProducts();
     Optional<Product> getProductById(Integer id);
-    Product addProduct(Product product);
+    List<Product> getProductsByProviderId(Integer id);
+    List<Product> getProductsByCategoryId(Integer id);
+    List<Product> getProductsByDescription(String description);
+    List<Product> getProductsByProviderAndCategoryAndDescription(Integer provider, Integer category, String description);
+    Product createProduct(Product product);
     Product updateProduct(Integer id, Product product);
 }
