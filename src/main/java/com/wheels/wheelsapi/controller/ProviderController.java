@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @Api(value = "Provider", tags = {"Provider"})
 @RequestMapping(path = "provider", produces = MediaType.APPLICATION_JSON_VALUE)
