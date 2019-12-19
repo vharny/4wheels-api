@@ -1,5 +1,6 @@
 package com.wheels.wheelsapi.controller;
 
+import com.wheels.wheelsapi.entity.Category;
 import com.wheels.wheelsapi.entity.Provider;
 import com.wheels.wheelsapi.service.ProviderService;
 import io.swagger.annotations.Api;
@@ -8,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -24,6 +26,11 @@ public class ProviderController {
     @GetMapping
     public List<Provider> getAllProviders() {
         return service.getAllProviders();
+    }
+
+    @GetMapping("{id}")
+    public Optional<Provider> getProviderbyID(@PathVariable Integer id) {
+        return service.getProviderById(id);
     }
 
     @PostMapping
