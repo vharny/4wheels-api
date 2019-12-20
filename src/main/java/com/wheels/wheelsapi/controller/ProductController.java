@@ -5,6 +5,7 @@ import com.wheels.wheelsapi.service.ProductService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,11 +53,13 @@ public class ProductController {
         return service.getProductsByProviderAndCategoryAndDescription(provider, category, description);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
         return service.createProduct(product);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("{id}")
     public Product updateProduct(@PathVariable Integer id, @RequestBody Product product) {
         return service.updateProduct(id, product);
