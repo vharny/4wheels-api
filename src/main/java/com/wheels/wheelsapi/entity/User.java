@@ -1,6 +1,6 @@
 package com.wheels.wheelsapi.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 @Entity
 @Table(name = "users")
@@ -24,6 +27,6 @@ public class User {
     String firstName;
     String email;
     boolean admin;
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     String password;
 }
