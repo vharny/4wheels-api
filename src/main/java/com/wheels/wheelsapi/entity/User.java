@@ -1,6 +1,6 @@
 package com.wheels.wheelsapi.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -24,6 +24,6 @@ public class User {
     String firstName;
     String email;
     boolean admin;
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     String password;
 }
