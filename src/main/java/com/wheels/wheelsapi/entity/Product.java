@@ -20,6 +20,7 @@ public class Product {
     float price;
     String description;
     int stock;
+    String handle;
     @JoinColumn
     @OneToOne
     Category category;
