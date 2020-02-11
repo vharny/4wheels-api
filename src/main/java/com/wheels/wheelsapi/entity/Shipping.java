@@ -22,7 +22,7 @@ public class Shipping {
     @OneToOne
     Product product;
     @Column(name = "date_send")
-    Date dateSend;
+    String dateSend;
     @JoinColumn
     @OneToOne
     User users;
