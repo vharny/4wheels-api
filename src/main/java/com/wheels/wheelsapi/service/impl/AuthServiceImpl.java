@@ -23,7 +23,7 @@ public class AuthServiceImpl implements UserDetailsService, AuthService {
     private PasswordEncoder bcryptEncoder;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) {
         com.wheels.wheelsapi.entity.User user = repository.findByEmail(email);
         if (user == null) {
             throw new UsernameNotFoundException("User not found with email: " + email);

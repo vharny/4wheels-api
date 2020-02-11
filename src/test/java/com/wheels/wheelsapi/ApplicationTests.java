@@ -41,20 +41,14 @@ class ApplicationTests {
 	@WithUserDetails("admin")
 	void givenEmployees_whenGetEmployees_thenReturnJsonArray()
 			throws Exception {
-		Mockito.when(this.service.getAllUsers()).thenReturn(Collections.singletonList(
-				new User( 1, "test", "test", "test", true, "test" )));
+		Mockito.when( this.service.getAllUsers() ).thenReturn( Collections.singletonList(
+				new User( 1, "test", "test", "test", true, "test" ) ) );
 
-		MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/user"))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.[0].lastName").value("test"))
+		MvcResult result = mvc.perform( MockMvcRequestBuilders.get( "/user" ) )
+				.andExpect( status().isOk() )
+				.andExpect( jsonPath( "$.[0].lastName" ).value( "test" ) )
 				.andReturn();
 
-		System.out.println(result.getResponse().getContentAsString());
-
+		System.out.println( result.getResponse().getContentAsString() );
 	}
-
-	@Test
-	void contextLoads() {
-	}
-
 }
