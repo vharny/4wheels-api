@@ -1,9 +1,10 @@
 package com.wheels.wheelsapi.controller;
 
-import com.wheels.wheelsapi.entity.Category;
+import com.wheels.wheelsapi.dto.ProductDto;
 import com.wheels.wheelsapi.entity.Provider;
 import com.wheels.wheelsapi.service.ProviderService;
 import io.swagger.annotations.Api;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,9 @@ public class ProviderController {
     }
 
     @PostMapping
-    public Provider createProvider(@RequestBody Provider provider) {
+    public Provider createProvider(@RequestBody ProductDto providerDto) {
+        ModelMapper modelMapper = new ModelMapper();
+        Provider provider = modelMapper.map(providerDto, Provider.class);
         return service.createProduct(provider);
     }
 }

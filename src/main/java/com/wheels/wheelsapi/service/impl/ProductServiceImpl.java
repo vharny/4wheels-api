@@ -54,15 +54,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product updateProduct(Integer id, Product product) {
-        Product prod = repository.findById(id).get();
-        prod.setName(product.getName());
-        prod.setDescription(product.getDescription());
-        prod.setPrice(product.getPrice());
-        prod.setStock(product.getStock());
-        prod.setCategory(product.getCategory());
-        prod.setProvider(product.getProvider());
-        prod.setHandle(product.getHandle());
-        return repository.save(prod);
+    public Product updateProduct(Product product) {
+        Optional<Product> productOptional = repository.findById(product.getId());
+        if (productOptional.isPresent()) {
+            Product productUpdate = productOptional.get();
+            productUpdate.setName(product.getName());
+            productUpdate.setDescription(product.getDescription());
+            productUpdate.setPrice(product.getPrice());
+            productUpdate.setStock(product.getStock());
+            productUpdate.setCategory(product.getCategory());
+            productUpdate.setProvider(product.getProvider());
+            productUpdate.setHandle(product.getHandle());
+            return repository.save(productUpdate);
+        }
+        return product;
     }
 }

@@ -1,11 +1,13 @@
 package com.wheels.wheelsapi.controller;
 
 import com.wheels.wheelsapi.configuration.JwtTokenUtil;
+import com.wheels.wheelsapi.dto.UserDto;
 import com.wheels.wheelsapi.entity.Token;
 import com.wheels.wheelsapi.entity.Login;
 import com.wheels.wheelsapi.entity.User;
 import com.wheels.wheelsapi.service.impl.AuthServiceImpl;
 import io.swagger.annotations.Api;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -34,7 +36,9 @@ public class AuthenticationController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("register")
-    public void register(@RequestBody User user) {
+    public void register(@RequestBody UserDto userDto) {
+        ModelMapper modelMapper = new ModelMapper();
+        User user = modelMapper.map(userDto, User.class);
         userDetailsService.save(user);
     }
 

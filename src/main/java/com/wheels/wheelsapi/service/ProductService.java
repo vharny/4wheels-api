@@ -13,5 +13,5 @@ public interface ProductService {
     List<Product> getProductsByDescription(String description);
     List<Product> getProductsByProviderAndCategoryAndDescription(Integer provider, Integer category, String description);
     Product createProduct(Product product);
-    Product updateProduct(Integer id, Product product);
+    Product updateProduct(Product product);
 }
