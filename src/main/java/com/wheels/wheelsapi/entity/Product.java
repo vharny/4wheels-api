@@ -26,4 +26,5 @@ public class Product {
     @JoinColumn
     @OneToOne
     Provider provider;
+    String handle;
 }
