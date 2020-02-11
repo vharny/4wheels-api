@@ -23,7 +23,6 @@ public class ShippingController {
     public ShippingController(ShippingService service) { this.service = service; }
 
 
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public List<Shipping> getAllShippings() { return service.getAllShippings(); }
 }

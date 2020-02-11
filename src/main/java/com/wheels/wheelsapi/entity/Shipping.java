@@ -21,8 +21,9 @@ public class Shipping {
     @JoinColumn
     @OneToOne
     Product product;
+    @Column(name = "date_send")
     Date dateSend;
     @JoinColumn
-    @ManyToOne
-    List<User> users;
+    @OneToOne
+    User users;
 }
