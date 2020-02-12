@@ -30,7 +30,7 @@ public class ProviderServiceImpl implements ProviderService {
     }
 
     @Override
-    public Provider createProduct(Provider provider) {
+    public Provider createProvider(Provider provider) {
         return repository.save(provider);
     }
 }

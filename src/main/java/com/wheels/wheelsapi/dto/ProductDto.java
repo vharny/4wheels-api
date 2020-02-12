@@ -11,6 +11,7 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 public class ProductDto {
+    Integer id;
     String name;
     float price;
     String description;

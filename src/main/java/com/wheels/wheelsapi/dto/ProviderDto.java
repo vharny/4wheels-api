@@ -9,9 +9,10 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 public class ProviderDto {
+    Integer id;
     String denomination;
-    String siret;
     String address;
+    String siret;
     String firstName;
     String lastName;
 }

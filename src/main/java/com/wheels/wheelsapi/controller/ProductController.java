@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +20,6 @@ import java.util.Optional;
 @RequestMapping(path = "product", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProductController {
     private ProductService service;
-    private ModelMapper modelMapper;
 
     @Autowired
     public ProductController(ProductService service) {
@@ -59,6 +59,7 @@ public class ProductController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public Product createProduct(@RequestBody ProductDto productDto) {
+        ModelMapper modelMapper = new ModelMapper();
         Product product = modelMapper.map(productDto, Product.class);
         return service.createProduct(product);
     }
@@ -66,6 +67,7 @@ public class ProductController {
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping
     public Product updateProduct(@RequestBody ProductDto productDto) {
+        ModelMapper modelMapper = new ModelMapper();
         Product product = modelMapper.map(productDto, Product.class);
         return service.updateProduct(product);
     }

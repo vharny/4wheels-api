@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface ProviderService {
     List<Provider> getAllProviders();
     Optional<Provider> getProviderById(Integer id);
-    Provider createProduct(Provider provider);
+    Provider createProvider(Provider provider);
 }

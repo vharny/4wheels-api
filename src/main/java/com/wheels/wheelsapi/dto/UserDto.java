@@ -9,6 +9,7 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 public class UserDto {
+    Integer id;
     String lastName;
     String firstName;
     String email;

@@ -1,6 +1,6 @@
 package com.wheels.wheelsapi.controller;
 
-import com.wheels.wheelsapi.dto.ProductDto;
+import com.wheels.wheelsapi.dto.ProviderDto;
 import com.wheels.wheelsapi.entity.Provider;
 import com.wheels.wheelsapi.service.ProviderService;
 import io.swagger.annotations.Api;
@@ -35,9 +35,9 @@ public class ProviderController {
     }
 
     @PostMapping
-    public Provider createProvider(@RequestBody ProductDto providerDto) {
+    public Provider createProvider(@RequestBody ProviderDto providerDto) {
         ModelMapper modelMapper = new ModelMapper();
         Provider provider = modelMapper.map(providerDto, Provider.class);
-        return service.createProduct(provider);
+        return service.createProvider(provider);
     }
 }
