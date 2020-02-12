@@ -39,10 +39,9 @@ class ApplicationTests {
 
 	@Test
 	@WithUserDetails("admin")
-	void givenEmployees_whenGetEmployees_thenReturnJsonArray()
-			throws Exception {
+	void givenEmployees_whenGetEmployees_thenReturnJsonArray() throws Exception {
 		Mockito.when( this.service.getAllUsers() ).thenReturn( Collections.singletonList(
-				new User( 1, "test", "test", "test", true, "test" ) ) );
+				new User(1, "test", "test", "test", true, "test" )));
 
 		MvcResult result = mvc.perform( MockMvcRequestBuilders.get( "/user" ) )
 				.andExpect( status().isOk() )
@@ -51,4 +50,5 @@ class ApplicationTests {
 
 		System.out.println( result.getResponse().getContentAsString() );
 	}
+
 }
